@@ -1,5 +1,5 @@
 name    'ghoneycutt-virtual'
-version '0.1.0'
+version '0.1.1'
 source 'git://github.com/ghoneycutt/puppet-module-virtual.git'
 author 'ghoneycutt'
 license 'Apache License, Version 2.0'
@@ -7,4 +7,4 @@ summary 'Meta class for virtualized nodes'
 description 'Optionally inclues classes based on virtualization type. Meant to be included from ghoneycutt/common'
 project_page 'https://github.com/ghoneycutt/puppet-module-virtual'
 
-dependency 'puppetlabs/stdlib', '>= 3.2.x'
+dependency 'puppetlabs/stdlib', '3.2.x'
