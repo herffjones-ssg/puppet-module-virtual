@@ -11,7 +11,7 @@ describe 'virtual' do
       { :enable_vmware => true }
     end
 
-    it { should include_class('vmware') }
+    it { should contain_class('vmware') }
 
   end
   describe 'should not include vmware class if disabled' do
@@ -23,7 +23,7 @@ describe 'virtual' do
       { :enable_vmware => false }
     end
 
-    it { should_not include_class('vmware') }
+    it { should_not contain_class('vmware') }
 
   end
 
@@ -36,7 +36,7 @@ describe 'virtual' do
       { :enable_vmware => "true" }
     end
 
-    it { should include_class('vmware') }
+    it { should contain_class('vmware') }
 
   end
 
