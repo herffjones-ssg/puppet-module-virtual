@@ -1,34 +1,23 @@
 # == Class: virtual
 #
-# Meant to be applied to any system that is virtualized.
+# Applies to any system that is virtualized.
 #
-# == Parameters
+# === Copyright
 #
-# enable_vmware
-# -------------
-# Boolean to include ghoneycutt/vmware
+# Copyright 2013 GH Solutions, LLC
 #
-# - *Default*: false
-#
-class virtual (
-  $enable_vmware = false,
-) {
+class virtual {
 
   case $::virtual {
-    'vmware': {
-      # validate type and convert string to boolean if necessary
-      $enable_vmware_type = type($enable_vmware)
-      if $enable_vmware_type == 'string' {
-        $vmware_enabled = str2bool($enable_vmware)
-      } else {
-        $vmware_enabled = $enable_vmware
-      }
-      if $vmware_enabled == true {
-        include vmware
-      }
+    'hyperv': {
+      include hyperv
     }
+    #'rhev': {
+    #  include rhev
+    #}
     default: {
-      fail("Virtualization platform <${::virtual}> is not supported.")
+      #fail("Supported virtualization platforms are RHEV and HyperV and this system is ${::virtual}")
+      fail("Supported virtualization platform is HyperV and this system is ${::virtual}")
     }
   }
 }
